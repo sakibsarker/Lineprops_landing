@@ -33,11 +33,15 @@ function AboutSection() {
   };
 
   return (
-    <div className="bg-[#eeeeee] w-full px-24" id="about" ref={ref}>
-      <div className="max-w-screen-3xl mx-auto ">
+    <div
+      className="bg-[#eeeeee] pt-20 md:pt-60 w-full px-5 md:px-10"
+      id="about"
+      ref={ref}
+    >
+      <div className="w-screen-3xl mx-auto ">
         <AnimatedComponent delay={0}>
-          <div className="text-center -pt-8 sm:pt-6 pb-[16px] md:pt-[24px] md:pb-[50px] lg:mt-[50px] xl:-mt-0 xl:py-[50px] xl:pt-[100px] xl:px-[50px] mt-10 2xl:mt-6 2xl:pt-[130px]">
-            <p className="font-openSans font-light text-[12px] md:text-[24px] xl:text-[32px] leading-[146%] text-gray-500 tracking-[-0.36px] md:tracking-[-0.96px]">
+          <div className="text-center">
+            <p className="font-openSans font-light text-md md:text-4xl leading-[146%] text-gray-500 tracking-[-0.36px] md:tracking-[-0.96px]">
               The <span className="font-bold text-[#525252]">LinePros</span>{" "}
               team developed products to address gaps in the marketplace and
               build superior solutions. Since our inception in 2010, our
@@ -52,11 +56,11 @@ function AboutSection() {
             delay={0.1}
             className="col-span-1 xl:col-span-3 mb-[38px] md:mb-0"
           >
-            <div className="flex relative mx-auto md:ml-0 w-[238px] md:w-[520px] h-[144px] md:h-[250px] xl:h-[347px] max-w-full">
+            <div className="flex relative mx-auto md:ml-0 w-72 md:w-full h-40 md:h-full max-w-full">
               <Image
                 src={ModalImg}
                 alt="img"
-                className="rounded-[30px] object-cover w-full h-full cursor-pointer"
+                className="rounded-3xl object-cover w-full h-full cursor-pointer"
                 onClick={() => setShowMyModal(true)}
               />
               <Image
