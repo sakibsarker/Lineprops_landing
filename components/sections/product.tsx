@@ -9,6 +9,7 @@ import FAQs from "./faqs";
 import BoxCard from "./BoxCard";
 import VisitCard from "./VisitCard";
 import TailwindCard from "./TailwindCard";
+import FeatureCardtwo from "../featureCardtwo";
 function ProductsSection() {
   const [backgroundImage, setBackgroundImage] = useState("../background-1.png");
 
@@ -72,7 +73,7 @@ function ProductsSection() {
           </div>
         </div>
 
-        <div className="md:px-12 px-[17px]">
+        {/* <div className="md:px-12 px-[17px]">
           <div className="max-w-screen-3xl mx-auto">
             <div className="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-x-[40px]">
               {sampleFeatures.map((feature, index) => (
@@ -80,7 +81,8 @@ function ProductsSection() {
               ))}
             </div>
           </div>
-        </div>
+        </div> */}
+        <FeatureCardtwo />
         <FAQs />
         <VisitCard />
       </div>
