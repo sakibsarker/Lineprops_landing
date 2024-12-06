@@ -83,9 +83,9 @@ function ContactsSection() {
               className="text-white font-light text-base sm:text-2xl lg:text-4xl xl:text-[40px] leading-snug max-md:text-center"
             >
               <p className="font-openSans font-light text-[16px] md:text-[40px] leading-[108%] text-white text-center md:text-left mx-auto max-w-[324px] md:max-w-[522px]">
-                <span className="font-bold">200% bonus</span>
-                {""} is simply dummy text of the printing and typesetting
-                industry.
+                <span className="font-bold">Any questions?</span>
+                {""}Contact us; our support and sales team are ready to assist
+                you.
               </p>
             </motion.div>
             <motion.div

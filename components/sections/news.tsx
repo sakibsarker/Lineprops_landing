@@ -20,8 +20,9 @@ function NewsSection() {
         </AnimatedComponent>
         <AnimatedComponent delay={0.1}>
           <div className="text-4xl md:text-8xl leading-[107%] py-[20px] sm:py-[30px] lg:py-[40px] font-openSans font-light text-[#666]">
-            Lorem Ipsum is <br /> simply dummy text of
-            <br /> the printing and.
+            The Growth of Online
+            <br /> Gambling Industry:
+            <br /> A Comparative Overview
           </div>
         </AnimatedComponent>
         <div className=" lg:grid grid-cols-12 items-end">
@@ -41,15 +42,16 @@ function NewsSection() {
           <div className="col-span-5 lg:col-span-6 lg:ms-24 xl:mt-32 mt-8 text-[#666]">
             <AnimatedComponent delay={0.4} className="mt-8">
               <div className="font-openSans font-regular text-[13px] md:text-[20px] leading-[185%] md:leading-[150%] text-[#666] xl:max-w-[400px] xl:text-justify">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry.Lorem Ipsum is simply dummy text of the printing and
-                typesetting industry.Lorem Ipsum is simply dummy text of the
-                printing and typesetting industry.Lorem Ipsum is simply dummy
-                text of the printing and typesetting industry.Lorem Ipsum is
-                simply dummy text of the printing and typesetting industry.
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry.Lorem Ipsum is simply dummy text of the printing and
-                typesetting industry.
+                The online gambling industry has grown significantly, driven by
+                technology, the expansion of mobile device use, and legalization
+                in various regions. In 2023, the global market reached $79.8
+                billion, projecting to grow to $161.32 billion by 2030 with a
+                compound annual growth rate (CAGR) of 10.57%. Europe leads the
+                market with favorable regulations and high internet penetration,
+                while the Asia-Pacific region experiences rapid growth due to
+                increased connectivity and smartphone use. North America also
+                shows notable growth, especially in the U.S., where several
+                states have legalized online gambling.
               </div>
             </AnimatedComponent>
             <AnimatedComponent delay={0.5} className="mt-8">

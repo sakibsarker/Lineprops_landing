@@ -1,13 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Link from "next/link";
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
-import plusIcon from "@/public/+.png";
-import CustomButton from "../customButton";
-import AnimatedComponent from "../AnimatedComponent";
-import { inView, useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import NumberAnimator from "../NumberAnimator";
 import BtnArrow from "@/public/btn-arrow-banner.png";
 import ModalImg from "@/public/modal-image.png";
@@ -15,21 +12,24 @@ import ModalClose from "@/public/modal-lay.png";
 import MyModal from "../MyModal";
 
 function AboutSection() {
-  const handleClick = () => {
-    console.log("Button clicked");
-  };
-  const plugin = React.useRef(
-    Autoplay({ delay: 2000, stopOnInteraction: true })
-  );
-
-  const ref = React.useRef(null);
-  const isInView = useInView(ref, { once: true });
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: false }); // Trigger every time it comes into view
 
   const [showMyModal, setShowMyModal] = useState(false);
-
+  const fadeInVariant = {
+    hidden: { opacity: 0, y: 60 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
+  };
   const handleOnClose = () => {
     setShowMyModal(false);
     document.body.style.overflow = "unset";
+  };
+  const handleClick = () => {
+    console.log("Button clicked");
   };
 
   return (
@@ -38,24 +38,26 @@ function AboutSection() {
       id="about"
       ref={ref}
     >
-      <div className="w-screen-3xl mx-auto ">
-        <AnimatedComponent delay={0}>
-          <div className="text-center">
-            <p className="font-openSans font-light text-md md:text-4xl leading-[146%] text-gray-500 tracking-[-0.36px] md:tracking-[-0.96px]">
-              The <span className="font-bold text-[#525252]">LinePros</span>{" "}
-              team developed products to address gaps in the marketplace and
-              build superior solutions. Since our inception in 2010, our
-              development has continued to close vulnerabilities and highlight
-              opportunities. Our industry knowledge and technological expertise
-              make us a necessary strategic partner.
-            </p>
-          </div>
-        </AnimatedComponent>
+      <motion.div
+        className="w-screen-3xl mx-auto "
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false, amount: 0.2 }}
+        variants={fadeInVariant}
+      >
+        <div className="text-center">
+          <p className="font-openSans font-light text-md md:text-4xl leading-[146%] text-gray-500 tracking-[-0.36px] md:tracking-[-0.96px]">
+            The <span className="font-bold text-[#525252]">LinePros</span> team
+            developed products to address gaps in the marketplace and build
+            superior solutions. Since our inception in 2010, our development has
+            continued to close vulnerabilities and highlight opportunities. Our
+            industry knowledge and technological expertise make us a necessary
+            strategic partner.
+          </p>
+        </div>
+
         <div className="md:grid grid-cols-2 xl:grid-cols-7 justify-between gap-x-[20px] xl:gap-x-[73px] items-center mt-[16px] md:mt-[55px] mb-[17px] md:mb-[39px]">
-          <AnimatedComponent
-            delay={0.1}
-            className="col-span-1 xl:col-span-3 mb-[38px] md:mb-0"
-          >
+          <div className="col-span-1 xl:col-span-3 mb-[38px] md:mb-0">
             <div className="flex relative mx-auto md:ml-0 w-72 md:w-full h-40 md:h-full max-w-full">
               <Image
                 src={ModalImg}
@@ -70,12 +72,9 @@ function AboutSection() {
                 onClick={() => setShowMyModal(true)}
               />
             </div>
-          </AnimatedComponent>
+          </div>
           <div className="col-span-1 xl:col-span-4">
-            <AnimatedComponent
-              delay={0.5}
-              className="flex items-center md:max-w-[625px] mb-[24px] md:mb-[39px]"
-            >
+            <div className="flex items-center md:max-w-[625px] mb-[24px] md:mb-[39px]">
               <div className="flex min-w-[100px] xl:min-w-[177px] justify-end">
                 <div className="font-archivo font-thin text-[50px] xl:text-[96px] leading-[108%] text-black md:text-[#666666]">
                   <NumberAnimator
@@ -95,11 +94,8 @@ function AboutSection() {
                   top-notch team
                 </p>
               </div>
-            </AnimatedComponent>
-            <AnimatedComponent
-              delay={0.5}
-              className="flex items-center md:max-w-[625px]"
-            >
+            </div>
+            <div className="flex items-center md:max-w-[625px]">
               <div className="flex min-w-[100px] xl:min-w-[177px] justify-end">
                 <div className="font-archivo font-thin text-[50px] xl:text-[96px] leading-[108%] text-black md:text-[#666666]">
                   <NumberAnimator
@@ -119,12 +115,12 @@ function AboutSection() {
                   motivation to develop innovative solutions
                 </p>
               </div>
-            </AnimatedComponent>
+            </div>
           </div>
         </div>
 
         <div className="flex flex-col-reverse md:grid grid-cols-2 xl:grid-cols-7 justify-between gap-x-[20px] xl:gap-x-[73px] items-center pt-[17px] md:pt-[39px] pb-[30px] md:pb-[50px]">
-          <AnimatedComponent delay={0.6} className="col-span-1 xl:col-span-3">
+          <div className="col-span-1 xl:col-span-3">
             <Link
               href="https://linepros.bet/"
               target="_blank"
@@ -138,8 +134,8 @@ function AboutSection() {
                 className="w-[6px] xl:w-[14px] xl:h-auto"
               />
             </Link>
-          </AnimatedComponent>
-          <AnimatedComponent delay={1} className="col-span-1 xl:col-span-4">
+          </div>
+          <div className="col-span-1 xl:col-span-4">
             <p className="font-openSans font-light text-[12px] md:text-[18px] xl:text-[32px] leading-[146%] text-[##666] tracking-[-0.36px] md:tracking-[-0.96px] xl:max-w-[636px] text-center md:text-left mb-[28px] md:mb-0">
               100% stable, customizable, and integration-friendly.
               <Link
@@ -152,9 +148,9 @@ function AboutSection() {
               , create a free user account, and explore all the features our
               software offers for your business.
             </p>
-          </AnimatedComponent>
+          </div>
         </div>
-      </div>
+      </motion.div>
       <MyModal onClose={handleOnClose} visible={showMyModal} />
     </div>
   );

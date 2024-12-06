@@ -1,34 +1,41 @@
-"use client"
-import React, { useEffect, useState } from 'react';
+"use client";
 
-// Define a type for the component props
+import React, { useEffect, useState } from "react";
+
 interface NumberAnimatorProps {
-    start: number;
-    end: number;
-    isInView: boolean;
-    intervalSet : number;
+  start: number;
+  end: number;
+  isInView: boolean;
+  intervalSet: number;
 }
 
-const NumberAnimator: React.FC<NumberAnimatorProps> = ({ start, end, isInView, intervalSet }) => {
-    const [value, setValue] = useState<number>(start);
+const NumberAnimator: React.FC<NumberAnimatorProps> = ({
+  start,
+  end,
+  isInView,
+  intervalSet,
+}) => {
+  const [value, setValue] = useState<number>(start);
 
-    useEffect(() => {
-        if (!isInView) return;
-        const interval = setInterval(() => {
-            setValue((prevValue) => {
-                if (prevValue < end) {
-                    return prevValue + 1;
-                } else {
-                    clearInterval(interval);
-                    return end;
-                }
-            });
-        }, intervalSet); // Adjust interval as needed
+  useEffect(() => {
+    if (!isInView) return;
 
-        return () => clearInterval(interval);
-    }, [start, end , isInView, intervalSet]);
+    setValue(start); // Reset to start
+    const interval = setInterval(() => {
+      setValue((prevValue) => {
+        if (prevValue < end) {
+          return prevValue + 1;
+        } else {
+          clearInterval(interval);
+          return end;
+        }
+      });
+    }, intervalSet);
 
-    return <div>{Math.round(value)}</div>;
+    return () => clearInterval(interval);
+  }, [isInView, start, end, intervalSet]);
+
+  return <div>{Math.round(value)}</div>;
 };
 
 export default NumberAnimator;
