@@ -1,46 +1,54 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import AnimatedComponent from "../AnimatedComponent";
 import CustomButton from "../customButton";
 import BtnArrowRed from "@/public/btn-arrow-red.png";
-
+import { motion, useInView } from "framer-motion";
 function NewsSection() {
   const handleClick = () => {
     console.log("Button clicked");
   };
-
+  const fadeInVariant = {
+    hidden: { opacity: 0, y: 60 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
+  };
   return (
     <div className="md:px-12 px-[17px] bg-white" id="news">
-      <div className="max-w-screen-3xl mx-auto pt-[40px] pb-[50px] lg:pt-[86px] lg:pb-[150px]">
-        <AnimatedComponent delay={0}>
-          <div className="tracking-widest text-md md:text-[25px] lg:text-[30px] xl:text-[36px] text-[#333333] font-openSans">
-            NEWS
-          </div>
-        </AnimatedComponent>
-        <AnimatedComponent delay={0.1}>
-          <div className="text-4xl md:text-8xl leading-[107%] py-[20px] sm:py-[30px] lg:py-[40px] font-openSans font-light text-[#666]">
-            The Growth of Online
-            <br /> Gambling Industry:
-            <br /> A Comparative Overview
-          </div>
-        </AnimatedComponent>
+      <motion.div
+        className="max-w-screen-3xl mx-auto pt-[40px] pb-[50px] lg:pt-[86px] lg:pb-[150px]"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false, amount: 0.2 }}
+        variants={fadeInVariant}
+      >
+        <div className="tracking-widest text-md md:text-[25px] lg:text-[30px] xl:text-[36px] text-[#333333] font-openSans">
+          NEWS
+        </div>
+
+        <div className="text-4xl md:text-8xl leading-[107%] py-[20px] sm:py-[30px] lg:py-[40px] font-openSans font-light text-[#666]">
+          The Growth of Online
+          <br /> Gambling Industry:
+          <br /> A Comparative Overview
+        </div>
+
         <div className=" lg:grid grid-cols-12 items-end">
-          <AnimatedComponent
-            delay={0.2}
-            className="sm:col-span-5 lg:col-span-6 justify-center max-w-[620px]"
-          >
-            <Image
+          <div className="sm:col-span-5 lg:col-span-6 justify-center max-w-[620px]">
+            <motion.img
               src="/news-article.png"
-              height="800"
-              width="1200"
-              quality={100}
-              className="rounded-[24px]"
+              height={1800}
+              width={1200}
+              className="rounded-3xl"
               alt="Background Image"
+              whileHover={{ scale: 1.1 }} // Slightly larger on hover
+              transition={{ type: "spring", stiffness: 150, damping: 20 }}
             />
-          </AnimatedComponent>
+          </div>
           <div className="col-span-5 lg:col-span-6 lg:ms-24 xl:mt-32 mt-8 text-[#666]">
-            <AnimatedComponent delay={0.4} className="mt-8">
+            <div className="mt-8">
               <div className="font-openSans font-regular text-[13px] md:text-[20px] leading-[185%] md:leading-[150%] text-[#666] xl:max-w-[400px] xl:text-justify">
                 The online gambling industry has grown significantly, driven by
                 technology, the expansion of mobile device use, and legalization
@@ -53,8 +61,8 @@ function NewsSection() {
                 shows notable growth, especially in the U.S., where several
                 states have legalized online gambling.
               </div>
-            </AnimatedComponent>
-            <AnimatedComponent delay={0.5} className="mt-8">
+            </div>
+            <div className="mt-8">
               <div className="read-more-btn hidden md:flex">
                 <CustomButton
                   text="Read More"
@@ -80,10 +88,10 @@ function NewsSection() {
                   className="w-[10px] xl:w-[14px] xl:h-auto"
                 />
               </Link>
-            </AnimatedComponent>
+            </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }
