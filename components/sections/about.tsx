@@ -59,12 +59,15 @@ function AboutSection() {
         <div className="md:grid grid-cols-2 xl:grid-cols-7 justify-between gap-x-[20px] xl:gap-x-[73px] items-center mt-[16px] md:mt-[55px] mb-[17px] md:mb-[39px]">
           <div className="col-span-1 xl:col-span-3 mb-[38px] md:mb-0">
             <div className="flex relative mx-auto md:ml-0 w-72 md:w-full h-40 md:h-full max-w-full">
-              <Image
-                src={ModalImg}
+              <motion.img
+                src="/modal-image.png"
                 alt="img"
                 className="rounded-3xl object-cover w-full h-full cursor-pointer"
+                whileHover={{ scale: 1.1 }} // Slightly larger on hover
+                transition={{ type: "spring", stiffness: 150, damping: 20 }}
                 onClick={() => setShowMyModal(true)}
               />
+
               <Image
                 src={ModalClose}
                 alt="img"
