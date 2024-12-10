@@ -14,6 +14,10 @@ import SocialConnect from "@/components/SocialConnect";
 import ServicesSection from "@/components/ServiceSection";
 import WhyLinePros from "@/components/LineProps";
 import Aboutus from "@/components/Aboutus";
+import FirstSlider from "@/components/header/FristSlider";
+import SecondSlider from "@/components/header/SecondSlider";
+import ThirdSlider from "@/components/header/ThirdSlider";
+import FourSlider from "@/components/header/FourSlider";
 
 export default function Home() {
   const [screenPoint, setScreenPoint] = useState(0);
@@ -55,8 +59,11 @@ export default function Home() {
   return (
     <div>
       {/* <Header scrolled={isScrolling} /> */}
-      <CustomSlider />
-
+      {/* <CustomSlider /> */}
+      <FirstSlider />
+      <SecondSlider />
+      <ThirdSlider />
+      <FourSlider />
       <Aboutus />
       <ServiceCard />
       <ProductsSection />
