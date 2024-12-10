@@ -27,15 +27,6 @@ function ProductsSection() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const fadeInVariant = {
-    hidden: { opacity: 0, y: 60 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5, ease: "easeOut" },
-    },
-  };
-
   return (
     <div className="w-full bg-[#eeeeee] pt-16 overflow-hidden ">
       <div className="max-w-screen-3xl mx-auto px-10">
@@ -50,16 +41,6 @@ function ProductsSection() {
           backgroundImage: backgroundImage,
         }}
       >
-        <motion.div
-          className="mx-auto  h-full "
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false, amount: 0.2 }}
-          variants={fadeInVariant}
-        >
-          <TailwindCard />
-        </motion.div>
-
         <div
           className="py-[70px] pt-[4px] md:pt-[54px] md:pb-[127px] md:px-12 px-[17px]"
           id="products"
@@ -73,18 +54,8 @@ function ProductsSection() {
           </div>
         </div>
 
-        {/* <div className="md:px-12 px-[17px]">
-          <div className="max-w-screen-3xl mx-auto">
-            <div className="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-x-[40px]">
-              {sampleFeatures.map((feature, index) => (
-                <FeatureCard key={index} feature={feature} />
-              ))}
-            </div>
-          </div>
-        </div> */}
         <FeatureCardtwo />
         <FAQs />
-        <VisitCard />
       </div>
     </div>
   );

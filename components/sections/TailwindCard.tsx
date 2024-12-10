@@ -40,8 +40,8 @@ function TailwindCard() {
 
   return (
     <div className="py-5 px-12 w-screen h-full">
-      {/* Container with Grid layout to show 2 cards per row */}
-      <div className="grid grid-cols-2 sm:grid-cols-2 lg:flex lg:flex-row gap-4 justify-center items-center">
+      {/* Container with 2x2 Grid layout */}
+      <div className="grid grid-cols-2 gap-2 justify-center items-center">
         {cardItems.map((item, index) => (
           <motion.div
             key={index}
@@ -51,7 +51,7 @@ function TailwindCard() {
             whileHover={{ scale: 1.06 }} // Adds hover scaling
             transition={{ type: "spring", stiffness: 200, damping: 20 }} // Smooth spring effect
           >
-            <div className="cardFlipper ">
+            <div className="cardFlipper">
               {/* Front Side */}
               <div className="side sideA border-[2px] border-[rgba(255,0,0,0.2)] flex flex-col justify-center items-center lg:gap-[16px]">
                 <Image
@@ -61,7 +61,7 @@ function TailwindCard() {
                   height={100}
                   className="w-[60px] h-[60px] md:w-[100px] md:h-[100px]"
                 />
-                <h3 className="text-white font-archivo font-[700] text-md md:text-lg  leading-[110.6%] text-center md:px-[58px] px-[20px]">
+                <h3 className="text-white font-archivo font-[700] text-md md:text-lg leading-[110.6%] text-center md:px-[58px] px-[20px]">
                   {item.title}
                 </h3>
                 <button
@@ -74,7 +74,7 @@ function TailwindCard() {
 
               {/* Back Side */}
               <div className="side sideB lg:gap-6">
-                <p className="text-[7px] md:text-lg  text-white px-4 text-center font-openSans">
+                <p className="text-[7px] md:text-lg text-white px-4 text-center font-openSans">
                   {item.content}
                 </p>
                 <div

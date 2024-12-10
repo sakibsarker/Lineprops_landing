@@ -136,8 +136,8 @@ function FeatureCardtwo() {
                 <div
                   className={
                     expandedIndex === index
-                      ? "h-[240px] w-auto flex justify-center mx-auto relative transition-all duration-500 ease-in-out"
-                      : "h-[424px] md:h-[520px] relative transition-all duration-500 !ease-in-out"
+                      ? "h-60 w-auto flex justify-center mx-auto relative transition-all duration-500 ease-in-out"
+                      : "h-[0px] md:h-[520px] relative transition-all duration-500 !ease-in-out"
                   }
                 >
                   <Image

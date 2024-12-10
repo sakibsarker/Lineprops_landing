@@ -1,13 +1,19 @@
 "use client";
 import { useEffect, useState } from "react";
 import HomeSection from "@/components/sections/home";
-import AboutSection from "@/components/sections/about";
+
 import NewsSection from "@/components/sections/news";
 import ContactsSection from "@/components/sections/contacts-us";
 import Header from "@/components/layouts/header";
 import FooterR from "@/components/layouts/footerR";
 import ProductsSection from "@/components/sections/product";
 import CustomSlider from "@/components/ui/customeSlider";
+import ServiceCard from "@/components/ServiceCard";
+import Newsletter from "@/components/Newsletter";
+import SocialConnect from "@/components/SocialConnect";
+import ServicesSection from "@/components/ServiceSection";
+import WhyLinePros from "@/components/LineProps";
+import Aboutus from "@/components/Aboutus";
 
 export default function Home() {
   const [screenPoint, setScreenPoint] = useState(0);
@@ -49,11 +55,17 @@ export default function Home() {
   return (
     <div>
       {/* <Header scrolled={isScrolling} /> */}
-      {/* <HomeSection /> */}
       <CustomSlider />
-      <AboutSection />
+
+      <Aboutus />
+      <ServiceCard />
       <ProductsSection />
+      <WhyLinePros />
+      <ServicesSection />
+      <Newsletter />
       <NewsSection />
+
+      <SocialConnect />
       <ContactsSection />
       <FooterR />
     </div>
