@@ -1,15 +1,15 @@
 "use client";
 import React, { useEffect, useState } from "react";
 
-import FeatureCard from "../featureCard";
+import FeatureCard from "./featureCard";
 import { sampleFeatures } from "@/bin/features";
 import { motion, useInView } from "framer-motion";
-import FAQs from "./faqs";
+import FAQs from "./sections/faqs";
 
-import BoxCard from "./BoxCard";
-import VisitCard from "./VisitCard";
-import TailwindCard from "./TailwindCard";
-import FeatureCardtwo from "../featureCardtwo";
+import BoxCard from "./sections/BoxCard";
+import VisitCard from "./sections/VisitCard";
+import TailwindCard from "./sections/TailwindCard";
+import FeatureCardtwo from "./featureCardtwo";
 function ProductsSection() {
   const [backgroundImage, setBackgroundImage] = useState("../background-1.png");
 

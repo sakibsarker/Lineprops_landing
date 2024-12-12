@@ -92,7 +92,7 @@ export const sampleFeatures: Feature[] = [
   },
 ];
 
-function FeatureCardtwo() {
+export default function FeaturesCards() {
   const [expandedIndex, setExpandedIndex] = React.useState<number | null>(null);
 
   const toggleExpand = (index: number) => {
@@ -109,7 +109,7 @@ function FeatureCardtwo() {
   }, []);
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 gap-5 md:gap-10 px-5 md:px-10">
+    <div className="grid grid-cols-2 md:grid-cols-3 bg-[#161b29] gap-5 md:gap-10 px-5 md:px-10">
       {sampleFeatures.map((feature, index) => (
         <div
           key={index}
@@ -137,7 +137,7 @@ function FeatureCardtwo() {
                   className={
                     expandedIndex === index
                       ? "h-60 w-auto flex justify-center mx-auto relative transition-all duration-500 ease-in-out"
-                      : "h-[240px] md:h-[520px] relative transition-all duration-500 !ease-in-out"
+                      : "h-[250px] md:h-[550px] relative transition-all duration-500 !ease-in-out"
                   }
                 >
                   <Image
@@ -165,8 +165,8 @@ function FeatureCardtwo() {
                     }
                     className={
                       expandedIndex === index
-                        ? "w-full h-full object-cover rounded-[24px] object-top tran-height"
-                        : "w-full aspect-[0.77/1] object-cover h-full rounded-[24px] tran-height"
+                        ? "w-full h-full object-cover rounded-3xl object-top tran-height"
+                        : "w-full aspect-[0.77/1] object-cover h-full rounded-3xl tran-height"
                     }
                   />
                 </div>
@@ -200,5 +200,3 @@ function FeatureCardtwo() {
     </div>
   );
 }
-
-export default FeatureCardtwo;

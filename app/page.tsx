@@ -6,7 +6,7 @@ import NewsSection from "@/components/sections/news";
 import ContactsSection from "@/components/sections/contacts-us";
 import Header from "@/components/layouts/header";
 import FooterR from "@/components/layouts/footerR";
-import ProductsSection from "@/components/sections/product";
+import ProductsSection from "@/components/product";
 import CustomSlider from "@/components/ui/customeSlider";
 import ServiceCard from "@/components/ServiceCard";
 import Newsletter from "@/components/Newsletter";
@@ -18,6 +18,8 @@ import FirstSlider from "@/components/header/FristSlider";
 import SecondSlider from "@/components/header/SecondSlider";
 import ThirdSlider from "@/components/header/ThirdSlider";
 import FourSlider from "@/components/header/FourSlider";
+import OurFeatures from "@/components/OurFeatures";
+import Background from "@/components/Background";
 
 export default function Home() {
   const [screenPoint, setScreenPoint] = useState(0);
@@ -64,9 +66,11 @@ export default function Home() {
       <SecondSlider />
       <ThirdSlider />
       <FourSlider /> */}
+      <Background />
       <Aboutus />
       <ServiceCard />
-      <ProductsSection />
+      <OurFeatures />
+      {/* <ProductsSection /> */}
       <WhyLinePros />
       <ServicesSection />
       <Newsletter />

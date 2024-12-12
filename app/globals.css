@@ -247,3 +247,14 @@
     width: 490px;
   }
 }
+
+/* Add this to your custom CSS */
+
+.semi-circle {
+  border-radius: 100rem 100rem 0 0;
+  transform: rotate(90deg); /* Rotates the semi-circle */
+}
+.semi-circle_right {
+  border-radius: 100rem 100rem 0 0;
+  transform: rotate(-90deg); /* Rotates the semi-circle */
+}
