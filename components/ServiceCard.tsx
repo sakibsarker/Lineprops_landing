@@ -27,13 +27,13 @@ const ServiceCard: React.FC = () => {
   ];
 
   return (
-    <div className="bg-[#EEEEEE] px-16 w-full">
+    <div className="bg-[#EEEEEE] px-5 md:px-16 w-full">
       <div className="py-28">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {services.map((service, index) => (
             <div
               key={index}
-              className={`p-8 rounded-3xl ${
+              className={`p-8 text-center md:text-start rounded-3xl ${
                 service.isDark ? "bg-[#141627]" : "bg-white"
               }`}
             >
@@ -46,7 +46,7 @@ const ServiceCard: React.FC = () => {
               </h2>
               <p
                 className={`text-lg leading-relaxed mb-8 ${
-                  service.isDark ? "text-gray-300" : "text-gray-600"
+                  service.isDark ? "text-white" : "text-gray-700"
                 }`}
               >
                 {service.description}

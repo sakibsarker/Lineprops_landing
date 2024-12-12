@@ -13,16 +13,16 @@ export default function Aboutus() {
   };
 
   return (
-    <div className="bg-[#EEEEEE] px-16 w-full ">
-      <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
+    <div className="bg-[#EEEEEE] px-5 text-center md:text-start md:px-16 w-full ">
+      <div className="grid grid-cols-1 gap-0 md:gap-16 md:grid-cols-2">
         {/* Left Column */}
-        <div className="flex flex-col space-y-8">
-          <h1 className="text-4xl font-bold tracking-tight text-slate-900 lg:text-5xl">
-            Grow Your Business &{" "}
-            <span className="block">Ensure High Performance</span>
+        <div className="flex flex-col space-y-5 md:space-y-8">
+          <h1 className="text-xl md:text-5xl font-bold tracking-wide text-black ">
+            Grow Your Business & <br />
+            Ensure High Performance
           </h1>
 
-          <p className="text-lg text-slate-600">
+          <p className="text-sm md:text-[17px] tracking-wide text-slate-700">
             Our solutions address critical challenges and create growth
             opportunities. Discover how LinePros delivers unmatched expertise to
             optimize your operations.
@@ -48,8 +48,8 @@ export default function Aboutus() {
         </div>
 
         {/* Right Column */}
-        <div className="flex flex-col justify-center space-y-8">
-          <p className="text-lg leading-relaxed text-slate-600">
+        <div className="flex flex-col justify-center space-y-5 md:space-y-8 ">
+          <p className="text-sm md:text-[17px] leading-relaxed text-slate-700 pt-5 md:pt-[30%]">
             The LinePros team developed products to address gaps in the
             marketplace and build superior solutions. Since our inception in
             2010, our development has continued to close vulnerabilities and

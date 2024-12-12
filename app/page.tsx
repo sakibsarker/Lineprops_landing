@@ -60,10 +60,10 @@ export default function Home() {
     <div>
       {/* <Header scrolled={isScrolling} /> */}
       {/* <CustomSlider /> */}
-      <FirstSlider />
+      {/* <FirstSlider />
       <SecondSlider />
       <ThirdSlider />
-      <FourSlider />
+      <FourSlider /> */}
       <Aboutus />
       <ServiceCard />
       <ProductsSection />
