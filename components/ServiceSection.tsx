@@ -19,7 +19,7 @@ const ServiceBlog = ({
       <Image src={imageSrc} alt={title} fill className="object-cover" />
     </div>
     <h3 className="text-3xl text-white font-medium mb-4">{title}</h3>
-    <p className="text-gray-400 mb-6 flex-grow">{description}</p>
+    <p className="text-white mb-6 flex-grow">{description}</p>
     <button className="flex items-center text-[#EE1D52] hover:text-[#ff2d64] transition-colors group">
       <span className="mr-2">{buttonText}</span>
       <FaArrowRight className="transform group-hover:translate-x-1 transition-transform" />
@@ -51,11 +51,11 @@ export default function ServicesSection() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#14162E] to-[#1E1736] p-8 md:p-16">
+    <div className="min-h-screen bg-gradient-to-br p-8 md:p-16">
       <div className="max-w-7xl mx-auto">
         <div className="mb-16">
           <h2 className="text-5xl font-bold text-white mb-6">Our Services</h2>
-          <p className="text-gray-400 text-lg max-w-3xl">
+          <p className="text-white text-lg max-w-3xl">
             We offer a complete range of services designed to elevate your
             business. From marketing strategies to live betting solutions, our
             expertise drives success across the gaming industry.

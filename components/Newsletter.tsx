@@ -7,7 +7,7 @@ export default function Newsletter() {
   };
 
   return (
-    <div className="min-h-screen px-16 bg-[#14162E] flex items-center justify-center">
+    <div className="min-h-screen px-16 flex items-center justify-center">
       {/* Existing box */}
 
       {/* New total box under the existing box */}

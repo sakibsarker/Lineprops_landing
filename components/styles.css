@@ -1,31 +1,32 @@
 .btn-2 {
-    position: relative;
-    /* transition: color 0.5s ease-in-out; */
-    z-index: 1;
-    /* gap: 1rem; */
+  position: relative;
+  /* transition: color 0.5s ease-in-out; */
+  z-index: 1;
+  /* gap: 1rem; */
 }
 
 .btn-2::before,
 .btn-2::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: #f01f2b;
-    z-index: -1;
-    transition: transform 0.5s ease-in-out;
-    transform-origin: center;
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  border-radius: 7px;
+  background-color: #f01f2b;
+  z-index: -1;
+  transition: transform 0.5s ease-in-out;
+  transform-origin: center;
 }
 
 .btn-2::before {
-    left: 0;
-    transform: scaleX(0);
+  left: 0;
+  transform: scaleX(0);
 }
 
 .btn-2::after {
-    right: 0;
-    transform: scaleX(0);
+  right: 0;
+  transform: scaleX(0);
 }
 
 /* .btn-2:hover {
@@ -34,56 +35,56 @@
 
 .btn-2:hover::before,
 .btn-2:hover::after {
-    transform: scaleX(1);
+  transform: scaleX(1);
 }
 
 .numberFont {
-    font-family: 'Archivo'; /* Replace 'YourDesiredFontFamily' with the actual font family you want to use */
-    /* Add any other font-related properties you need, such as font-weight, font-style, etc. */
-  }
-
+  font-family: "Archivo"; /* Replace 'YourDesiredFontFamily' with the actual font family you want to use */
+  /* Add any other font-related properties you need, such as font-weight, font-style, etc. */
+}
 
 .btn-1 {
-    position: relative;
-    /* transition: color 0.5s ease-in-out; */
-    z-index: 1;
-    /* gap: 1rem; */
+  position: relative;
+  /* transition: color 0.5s ease-in-out; */
+  z-index: 1;
+  /* gap: 1rem; */
 }
 
 .btn-1::before,
 .btn-1::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: #f01f2b;
-    z-index: -1;
-    transition: transform 0.5s ease-in-out;
-    transform-origin: center;
-    border-radius: inherit;
-    -webkit-border-radius: inherit;
-    -moz-border-radius: inherit;
-    -ms-border-radius: inherit;
-    -o-border-radius: inherit;
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  border-radius: 7px;
+  background-color: #f01f2b;
+  z-index: -1;
+  transition: transform 0.5s ease-in-out;
+  transform-origin: center;
+  border-radius: inherit;
+  -webkit-border-radius: inherit;
+  -moz-border-radius: inherit;
+  -ms-border-radius: inherit;
+  -o-border-radius: inherit;
 }
 
 .btn-1::before {
-    left: 0;
-    transform: scaleX(1);
-    -webkit-transform: scaleX(1);
-    -moz-transform: scaleX(1);
-    -ms-transform: scaleX(1);
-    -o-transform: scaleX(1);
+  left: 0;
+  transform: scaleX(1);
+  -webkit-transform: scaleX(1);
+  -moz-transform: scaleX(1);
+  -ms-transform: scaleX(1);
+  -o-transform: scaleX(1);
 }
 
 .btn-1::after {
-    right: 0;
-    transform: scaleX(1);
-    -webkit-transform: scaleX(1);
-    -moz-transform: scaleX(1);
-    -ms-transform: scaleX(1);
-    -o-transform: scaleX(1);
+  right: 0;
+  transform: scaleX(1);
+  -webkit-transform: scaleX(1);
+  -moz-transform: scaleX(1);
+  -ms-transform: scaleX(1);
+  -o-transform: scaleX(1);
 }
 
 /* .btn-1:hover {
@@ -92,9 +93,9 @@
 
 .btn-1:hover::before,
 .btn-1:hover::after {
-    transform: scaleX(0);
-    -webkit-transform: scaleX(0);
-    -moz-transform: scaleX(0);
-    -ms-transform: scaleX(0);
-    -o-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transform: scaleX(0);
+  -moz-transform: scaleX(0);
+  -ms-transform: scaleX(0);
+  -o-transform: scaleX(0);
 }

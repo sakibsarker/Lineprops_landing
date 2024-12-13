@@ -39,7 +39,7 @@ function TailwindCard() {
   };
 
   return (
-    <div className="py-5 px-12 w-screen h-full">
+    <div className="w-screen h-full">
       {/* Container with 2x2 Grid layout */}
       <div className="grid grid-cols-2 gap-2 justify-center items-center">
         {cardItems.map((item, index) => (
@@ -59,7 +59,7 @@ function TailwindCard() {
                   alt="Background Image"
                   width={100}
                   height={100}
-                  className="w-[60px] h-[60px] md:w-[100px] md:h-[100px]"
+                  className="w-[40px] h-[40px] md:w-[100px] md:h-[100px]"
                 />
                 <h3 className="text-white font-archivo font-[700] text-md md:text-lg leading-[110.6%] text-center md:px-[58px] px-[20px]">
                   {item.title}

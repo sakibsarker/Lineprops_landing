@@ -66,19 +66,12 @@ export default function Home() {
       <SecondSlider />
       <ThirdSlider />
       <FourSlider /> */}
-      <Background />
-      <Aboutus />
-      <ServiceCard />
-      <OurFeatures />
-      {/* <ProductsSection /> */}
-      <WhyLinePros />
-      <ServicesSection />
-      <Newsletter />
-      <NewsSection />
+      <div className="relative z-10">
+        <Aboutus />
+        <ServiceCard />
+      </div>
 
-      <SocialConnect />
-      <ContactsSection />
-      <FooterR />
+      <Background />
     </div>
   );
 }

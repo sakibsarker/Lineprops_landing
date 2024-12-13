@@ -58,8 +58,8 @@ export default function Question() {
   ];
 
   return (
-    <div className="container mx-auto bg-[#161b29]">
-      <div className="flex flex-col-reverse items-start justify-between lg:flex-row gap-10">
+    <div className="container mx-auto ">
+      <div className="flex flex-col-reverse items-start justify-between md:flex-row gap-10">
         <div className="lg:w-7/12 w-full">
           <div className="space-y-4">
             {faqs.map((faq, index) => (
@@ -121,21 +121,22 @@ export default function Question() {
           </div>
         </div>
 
-        <div className="lg:w-4/12 w-full flex flex-col  justify-center mt-3 lg:mt-0 lg:pl-6">
-          <h1 className="font-archivo text-[30px] md:text-[42px] xl:text-[64px] leading-[1.2] text-white max-w-[500px] md:max-w-[480px] xl:max-w-[630px] font-bold ">
+        <div className="lg:w-4/12 w-full flex flex-col text-center md:text-start justify-center mt-3 lg:mt-0 lg:pl-6">
+          <h1 className="font-archivo text-3xl md:text-4xl leading-[1.2] text-white max-w-[500px] md:max-w-[480px] xl:max-w-[630px] font-bold">
             Frequently Asked Questions
           </h1>
-          <p className="my-5 text-[20px]  leading-[1.3] font-thin text-[#FFFFFF] ">
+          <p className="my-5 text-md md:text-lg leading-[1.3] font-thin text-[#FFFFFF]">
             Our solution is built to deliver reliability, scalability, and
             customization, with features that support the seamless operation of
             your betting business.
           </p>
+
           <Link
             href=""
             target="_blank"
-            className="flex justify-center items-center tracking-wider font-openSans font-bold text-[16px] md:text-[20px]  text-white py-[14px] md:py-[12px] px-[10px]   max-w-[250px] md:max-w-[300px] border-[3px] md:border-[4px] border-solid border-[#F01E2A] rounded-[5px] md:rounded-[10px]  md:-mt-[2px] hover:duration-300 btn-2 text-center "
+            className="w-[50%] md:w-[70%] mx-auto md:mx-0 flex justify-center tracking-wider font-openSans font-bold text-sm md:text-lg text-white py-3 md:py-3 rounded-lg border-[2px] md:border-[2px] border-solid border-white hover:duration-300 btn-2"
           >
-            BOOK A DEMO NOW
+            Book a Demo Now!
           </Link>
         </div>
       </div>

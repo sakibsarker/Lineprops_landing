@@ -113,6 +113,8 @@
 .cardContainer:hover {
   transform: scale(1.07);
   transition: all 0.3s linear;
+  border-radius: 20px;
+  background-color: rgba(167, 68, 71, 0.969);
 }
 
 .cardContainer.flip .cardFlipper {

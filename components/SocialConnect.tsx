@@ -35,7 +35,7 @@ export default function SocialConnect() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#14162E] p-8 flex items-center justify-center">
+    <div className="min-h-screen  p-8 flex items-center justify-center">
       <div className="w-full max-w-6xl rounded-2xl overflow-hidden">
         <div className="grid md:grid-cols-2">
           {/* Left Section */}
