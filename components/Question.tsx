@@ -58,7 +58,7 @@ export default function Question() {
   ];
 
   return (
-    <div className="container mx-auto ">
+    <div className="container mx-auto py-10 md:py-48">
       <div className="flex flex-col-reverse items-start justify-between md:flex-row gap-10">
         <div className="lg:w-7/12 w-full">
           <div className="space-y-4">

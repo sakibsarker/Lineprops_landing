@@ -109,7 +109,7 @@ export default function FeaturesCards() {
   }, []);
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 gap-5 md:gap-10 px-5 md:px-10">
+    <div className="grid grid-cols-2 md:grid-cols-3 gap-5 md:gap-10 px-5 md:px-16">
       {sampleFeatures.map((feature, index) => (
         <div
           key={index}

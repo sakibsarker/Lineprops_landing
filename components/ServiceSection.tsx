@@ -51,8 +51,8 @@ export default function ServicesSection() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br p-8 md:p-16">
-      <div className="max-w-7xl mx-auto">
+    <div className="min-h-screen py-10 md:py-48">
+      <div className="mx-5 md:mx-16">
         <div className="mb-16">
           <h2 className="text-5xl font-bold text-white mb-6">Our Services</h2>
           <p className="text-white text-lg max-w-3xl">
