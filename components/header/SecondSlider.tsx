@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function SecondSlider() {
   return (
-    <div className="relative min-h-screen">
+    <div className="relative min-h-screen bg-[#EEEEEE] ">
       {/* Background image */}
       <div className="absolute top-0 left-0 w-full h-[85vh] z-0">
         <Image
@@ -15,7 +15,7 @@ export default function SecondSlider() {
         />
       </div>
 
-      <div className="relative z-10 h-[85vh] w-full">
+      <div className="relative z-10 h-[85vh] w-full ">
         <div className="container mx-auto px-6 pt-20 lg:pt-32">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left Column - Text Content */}

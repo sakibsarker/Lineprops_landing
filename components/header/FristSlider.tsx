@@ -2,13 +2,13 @@ import Image from "next/image";
 
 export default function FirstSlider() {
   return (
-    <div className="min-h-screen relative flex items-start py-5 justify-start bg-gray-300">
+    <div className="min-h-screen relative flex items-start justify-start bg-[#EEEEEE]">
       {/* Background image using Tailwind CSS */}
       <div className="absolute inset-0 bg-[url('/hero1bg.png')] bg-cover bg-center h-[85vh]" />
       <div className="container mx-auto relative z-10">
         <div className="grid grid-cols-3 items-start">
           {/* Left side - Device mockups */}
-          <div className="relative w-[1100px] -ml-[50px] z-10 col-span-2 ">
+          <div className="relative w-[1100px]  -ml-[50px] -mb-16  z-10 col-span-2 ">
             <Image
               src="/slider1image.png"
               alt="Betting software interface on laptop"

@@ -1,27 +1,32 @@
 "use client";
 import { useEffect, useState } from "react";
-import HomeSection from "@/components/sections/home";
-
-import NewsSection from "@/components/sections/news";
-import ContactsSection from "@/components/sections/contacts-us";
-import Header from "@/components/layouts/header";
-import FooterR from "@/components/layouts/footerR";
-import ProductsSection from "@/components/product";
-import CustomSlider from "@/components/ui/customeSlider";
+import { motion, AnimatePresence } from "framer-motion";
 import ServiceCard from "@/components/ServiceCard";
-import Newsletter from "@/components/Newsletter";
-import SocialConnect from "@/components/SocialConnect";
-import ServicesSection from "@/components/ServiceSection";
-import WhyLinePros from "@/components/LineProps";
 import Aboutus from "@/components/Aboutus";
 import FirstSlider from "@/components/header/FristSlider";
 import SecondSlider from "@/components/header/SecondSlider";
 import ThirdSlider from "@/components/header/ThirdSlider";
 import FourSlider from "@/components/header/FourSlider";
-import OurFeatures from "@/components/OurFeatures";
 import Background from "@/components/Background";
 
 export default function Home() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const slides = [
+    <FirstSlider />,
+    <SecondSlider />,
+    <ThirdSlider />,
+    <FourSlider />,
+  ];
+
+  // Automatically move to the next slide every 3 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 3000); // Change slide every 3 seconds
+
+    return () => clearInterval(interval); // Cleanup on component unmount
+  }, [slides.length]);
+
   const [screenPoint, setScreenPoint] = useState(0);
   const [isScrolling, setIsScrolling] = useState(false);
 
@@ -60,6 +65,18 @@ export default function Home() {
 
   return (
     <div>
+      <div className="relative w-full overflow-hidden">
+        <div
+          className="flex transition-transform duration-500"
+          style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+        >
+          {slides.map((Slide, index) => (
+            <div key={index} className="w-full flex-shrink-0">
+              {Slide}
+            </div>
+          ))}
+        </div>
+      </div>
       {/* <Header scrolled={isScrolling} /> */}
       {/* <CustomSlider /> */}
       {/* <FirstSlider />

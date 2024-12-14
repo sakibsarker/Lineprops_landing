@@ -2,19 +2,7 @@ import Image from "next/image";
 
 export default function ThirdSlider() {
   return (
-    <div className="relative min-h-screen">
-      {/* Background image */}
-      {/* <div className="absolute top-0 left-0 w-full h-[85vh] z-0">
-        <Image
-          src="/hero2bg.png" // Replace with your background image path
-          alt="Background"
-          layout="fill"
-          objectFit="cover"
-          objectPosition="center"
-          priority
-        />
-      </div> */}
-      {/* <div className="h-[85vh] w-full bg-gradient-to-r from-[#ff0033] via-[#cc0033] to-[#660033]"> */}
+    <div className="relative min-h-screen bg-[#EEEEEE]">
       <div className="absolute top-0 left-0 w-full h-[85vh] z-0">
         <Image
           src="/hero1bg.png" // Replace with your background image path
