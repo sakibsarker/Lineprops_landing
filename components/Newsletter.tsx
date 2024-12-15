@@ -35,7 +35,7 @@ export default function Newsletter() {
                 <p className="text-white/90 text-base sm:text-lg leading-relaxed">
                   Subscribe to our newsletter and stay informed about new
                   features, emerging trends, and essential updates. Be the first
-                  to know what's shaping the industry.
+                  to know what&apos;s shaping the industry.
                 </p>
               </div>
             </motion.div>

@@ -12,21 +12,21 @@ import CustomSlider from "@/components/ui/customeSlider";
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const slides = [
-    <FirstSlider />,
-    <SecondSlider />,
-    <ThirdSlider />,
-    <FourSlider />,
-  ];
+  // const slides = [
+  //   <FirstSlider />,
+  //   <SecondSlider />,
+  //   <ThirdSlider />,
+  //   <FourSlider />,
+  // ];
 
-  // Automatically move to the next slide every 3 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 3000); // Change slide every 3 seconds
+  // // Automatically move to the next slide every 3 seconds
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setCurrentSlide((prev) => (prev + 1) % slides.length);
+  //   }, 3000); // Change slide every 3 seconds
 
-    return () => clearInterval(interval); // Cleanup on component unmount
-  }, [slides.length]);
+  //   return () => clearInterval(interval); // Cleanup on component unmount
+  // }, [slides.length]);
 
   return (
     <div className="bg-[#EEEEEE]">

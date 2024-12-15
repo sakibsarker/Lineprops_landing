@@ -35,7 +35,7 @@ export default function ThirdSlider() {
                   viewport={{ once: false, amount: 0.5 }}
                   transition={{ delay: 0.3, duration: 0.5, ease: "easeOut" }}
                 >
-                  with the <span className="font-bold">world's </span>
+                  with the <span className="font-bold">world&apos;s </span>
                 </motion.span>
                 <motion.span
                   className="font-bold block"
@@ -68,7 +68,7 @@ export default function ThirdSlider() {
               <div className="absolute -bottom-24 right-12 w-full">
                 <motion.img
                   src="/slider3image.png"
-                  alt="Live dealer interface"
+                  alt="mobilescreen"
                   width={2000}
                   height={1800}
                   className="w-full h-auto "

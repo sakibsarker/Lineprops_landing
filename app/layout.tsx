@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Open_Sans, Archivo } from "next/font/google";
 import "./globals.css";
 import Head from "next/head";
+import CursorTrail from "@/components/CursorTrail";
 
 const openSans = Open_Sans({
   weight: ["300", "400", "500", "600", "700", "800"],
@@ -50,6 +51,7 @@ export default function RootLayout({
         />
       </Head>
       <body className={`${openSans.className} ${archivo.className}`}>
+        <CursorTrail />
         {children}
       </body>
     </html>
