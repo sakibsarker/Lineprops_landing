@@ -5,6 +5,7 @@ import {
   FaFacebookF,
   FaInstagram,
 } from "react-icons/fa";
+import { motion, useInView } from "framer-motion";
 
 export default function SocialConnect() {
   const socialLinks = [
@@ -38,12 +39,31 @@ export default function SocialConnect() {
     },
   ];
 
+  const fadeInVariant = {
+    hidden: { opacity: 0, y: 60 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center">
+    <motion.div
+      className="min-h-screen flex items-center justify-center"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: false, amount: 0.2 }}
+      variants={fadeInVariant}
+    >
       <div className="w-full mx-5 md:mx-16  rounded-2xl overflow-hidden">
         <div className="grid md:grid-cols-2">
           {/* Left Section */}
-          <div className="bg-[#f01e2a] p-12 md:p-16">
+          <motion.div
+            className="bg-[#f01e2a] p-12 md:p-16"
+            whileHover={{ scale: 1.1 }} // Slightly larger on hover
+            transition={{ type: "spring", stiffness: 150, damping: 20 }}
+          >
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
               Stay Connected with
               <br />
@@ -66,11 +86,15 @@ export default function SocialConnect() {
                 </a>
               ))}
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Section */}
           <div className="relative">
-            <div className="absolute inset-0">
+            <motion.div
+              className="absolute inset-0 "
+              whileHover={{ scale: 1.1 }} // Slightly larger on hover
+              transition={{ type: "spring", stiffness: 150, damping: 20 }}
+            >
               <Image
                 src="/Placeholder-2.png"
                 alt="LinePros Mobile App"
@@ -78,10 +102,10 @@ export default function SocialConnect() {
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-br from-black/40 to-transparent" />
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

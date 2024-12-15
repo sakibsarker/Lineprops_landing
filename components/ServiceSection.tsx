@@ -1,31 +1,6 @@
 import Image from "next/image";
 import { FaArrowRight } from "react-icons/fa";
-
-interface ServiceCardProps {
-  title: string;
-  description: string;
-  imageSrc: string;
-  buttonText?: string;
-}
-
-const ServiceBlog = ({
-  title,
-  description,
-  imageSrc,
-  buttonText = "See More",
-}: ServiceCardProps) => (
-  <div className="flex flex-col">
-    <div className="relative h-64 rounded-2xl overflow-hidden mb-6">
-      <Image src={imageSrc} alt={title} fill className="object-cover" />
-    </div>
-    <h3 className="text-3xl text-white font-medium mb-4">{title}</h3>
-    <p className="text-white mb-6 flex-grow">{description}</p>
-    <button className="flex items-center text-[#EE1D52] hover:text-[#ff2d64] transition-colors group">
-      <span className="mr-2">{buttonText}</span>
-      <FaArrowRight className="transform group-hover:translate-x-1 transition-transform" />
-    </button>
-  </div>
-);
+import { motion, useInView } from "framer-motion";
 
 export default function ServicesSection() {
   const services = [
@@ -45,13 +20,28 @@ export default function ServicesSection() {
       title: "Software Demo",
       description:
         "Try our software with a personalized demo. Discover its intuitive interface, advanced tools, and features built to enhance efficiency.",
-      imageSrc: "/blog3.png",
       buttonText: "Book Now",
+      imageSrc: "/blog3.png",
     },
   ];
 
+  const fadeInVariant = {
+    hidden: { opacity: 0, y: 60 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
+  };
+
   return (
-    <div className="min-h-screen py-10 md:py-48">
+    <motion.div
+      className="min-h-screen py-10 md:py-48"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: false, amount: 0.2 }}
+      variants={fadeInVariant}
+    >
       <div className="mx-5 md:mx-16">
         <div className="mb-16">
           <h2 className="text-5xl font-bold text-white mb-6">Our Services</h2>
@@ -64,16 +54,31 @@ export default function ServicesSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
           {services.map((service, index) => (
-            <ServiceBlog
-              key={index}
-              title={service.title}
-              description={service.description}
-              imageSrc={service.imageSrc}
-              buttonText={service.buttonText}
-            />
+            <div key={index} className="flex flex-col">
+              <motion.div
+                className="relative h-64 rounded-2xl overflow-hidden mb-6"
+                whileHover={{ scale: 1.1 }} // Slightly larger on hover
+                transition={{ type: "spring", stiffness: 150, damping: 20 }}
+              >
+                <Image
+                  src={service.imageSrc}
+                  alt={service.title}
+                  fill
+                  className="object-cover"
+                />
+              </motion.div>
+              <h3 className="text-3xl text-white font-medium mb-4">
+                {service.title}
+              </h3>
+              <p className="text-white mb-6 flex-grow">{service.description}</p>
+              <button className="flex items-center text-[#EE1D52] hover:text-[#ff2d64] transition-colors group">
+                <span className="mr-2">{service.buttonText || "See More"}</span>
+                <FaArrowRight className="transform group-hover:translate-x-1 transition-transform" />
+              </button>
+            </div>
           ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { IoIosPlay } from "react-icons/io";
 import MyModal from "./MyModal";
+import { motion, useInView } from "framer-motion";
 
 export default function Aboutus() {
   const [showMyModal, setShowMyModal] = useState(false);
@@ -12,8 +13,23 @@ export default function Aboutus() {
     document.body.style.overflow = "unset";
   };
 
+  const fadeInVariant = {
+    hidden: { opacity: 0, y: 60 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
+  };
+
   return (
-    <div className="bg-[#EEEEEE] px-5 text-center md:text-start md:px-16 w-full ">
+    <motion.div
+      className="bg-[#EEEEEE] px-5 text-center pt-20 md:text-start md:px-16 w-full "
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: false, amount: 0.2 }}
+      variants={fadeInVariant}
+    >
       <div className="grid grid-cols-1 gap-0 md:gap-16 md:grid-cols-2">
         {/* Left Column */}
         <div className="flex flex-col space-y-5 md:space-y-8">
@@ -30,7 +46,11 @@ export default function Aboutus() {
 
           {/* Video Preview Container */}
           <div className="relative rounded-2xl bg-gray-200 shadow-lg">
-            <div className="relative aspect-[16/10] overflow-hidden rounded-2xl">
+            <motion.div
+              className="relative aspect-[16/10] overflow-hidden rounded-2xl"
+              whileHover={{ scale: 1.1 }} // Slightly larger on hover
+              transition={{ type: "spring", stiffness: 150, damping: 20 }}
+            >
               <img
                 src="/aboutvideoimg.png"
                 alt="Platform Preview"
@@ -43,7 +63,7 @@ export default function Aboutus() {
                   className="h-40 w-40 text-red-600"
                 />
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
 
@@ -67,6 +87,6 @@ export default function Aboutus() {
 
       {/* Modal Component */}
       <MyModal onClose={handleOnClose} visible={showMyModal} />
-    </div>
+    </motion.div>
   );
 }

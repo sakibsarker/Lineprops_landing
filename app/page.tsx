@@ -27,62 +27,21 @@ export default function Home() {
     return () => clearInterval(interval); // Cleanup on component unmount
   }, [slides.length]);
 
-  const [screenPoint, setScreenPoint] = useState(0);
-  const [isScrolling, setIsScrolling] = useState(false);
-
-  useEffect(() => {
-    // Ensure window is defined
-    if (typeof window === "undefined") return;
-
-    const handleScroll = () => {
-      setScreenPoint(window.scrollY);
-      setIsScrolling(window.scrollY > 50);
-    };
-
-    const sendMessage = () => {
-      const height = window.innerHeight;
-      const width = window.innerWidth;
-
-      window.parent.postMessage(
-        {
-          "full-content-height": height,
-          "full-content-width": width,
-        },
-        "*"
-      );
-    };
-
-    sendMessage(); // Send the message on initial load
-
-    window.addEventListener("scroll", handleScroll);
-    window.addEventListener("resize", sendMessage); // Send the message on resize
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", sendMessage);
-    };
-  }, []);
-
   return (
-    <div>
-      <div className="relative w-full overflow-hidden">
+    <div className="bg-[#EEEEEE]">
+      <div className="relative w-full overflow-hidden ">
         <div
           className="flex transition-transform duration-500"
           style={{ transform: `translateX(-${currentSlide * 100}%)` }}
         >
           {slides.map((Slide, index) => (
-            <div key={index} className="w-full flex-shrink-0">
+            <motion.div key={index} className="w-full flex-shrink-0">
               {Slide}
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
-      {/* <Header scrolled={isScrolling} /> */}
-      {/* <CustomSlider /> */}
-      {/* <FirstSlider />
-      <SecondSlider />
-      <ThirdSlider />
-      <FourSlider /> */}
+
       <div className="relative z-10">
         <Aboutus />
         <ServiceCard />

@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import Image from "next/image";
 import { Minus, Plus } from "lucide-react";
+import { motion, useInView } from "framer-motion";
 
 export const sampleFeatures: Feature[] = [
   {
@@ -108,95 +109,124 @@ export default function FeaturesCards() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const fadeInVariant = {
+    hidden: { opacity: 0, y: 60 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
+  };
+
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 gap-5 md:gap-10 px-5 md:px-16">
-      {sampleFeatures.map((feature, index) => (
-        <div
-          key={index}
-          className="cursor-pointer mb-2 md:mb-2 transition-all duration-500 ease-in-out"
-        >
-          <div className="mb-2 mb:mb-2 transition-all duration-500 ease-in-out">
-            <div
-              className={
-                expandedIndex === index
-                  ? "md:h-[240px] h-[240px] relative transition-all duration-500 ease-in-out"
-                  : "relative transition-all duration-500 ease-in-out"
-              }
-            >
-              <div className="flex justify-end items-end absolute top-[14px] z-20 right-[14px]">
-                <Button
-                  variant={"ghost"}
-                  className="w-10 h-10 p-0 rounded-full text-white border-[1px] border-solid border-[#808080] cursor-pointer"
-                  onClick={() => toggleExpand(index)}
-                >
-                  {expandedIndex === index ? <Minus /> : <Plus />}
-                </Button>
-              </div>
-              <div>
-                <div
-                  className={
-                    expandedIndex === index
-                      ? "h-60 w-auto flex justify-center mx-auto relative transition-all duration-500 ease-in-out"
-                      : "h-[250px] md:h-[550px] relative transition-all duration-500 !ease-in-out"
-                  }
-                >
-                  <Image
-                    src={feature.Image}
-                    alt={
-                      expandedIndex === index ? "Feature GIF" : "Feature Image"
-                    }
-                    width={
-                      expandedIndex === index
-                        ? isMobile
-                          ? 150
-                          : 300
-                        : isMobile
-                        ? 300
-                        : 600
-                    }
-                    height={
-                      expandedIndex === index
-                        ? isMobile
-                          ? 100
-                          : 200
-                        : isMobile
-                        ? 200
-                        : 400
-                    }
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: false, amount: 0.2 }}
+      variants={fadeInVariant}
+    >
+      <p className="px-5  py-10 md:py-28 md:px-16  font-archivo font-thin text-lg md:text-5xl leading-[100%] text-black ">
+        <span className="font-bold">Explore </span>
+        our main features.
+      </p>
+
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-5 md:gap-10 px-5 md:px-16">
+        {sampleFeatures.map((feature, index) => (
+          <div
+            key={index}
+            className="cursor-pointer mb-2 md:mb-2 transition-all duration-500 ease-in-out"
+          >
+            <div className="mb-2 mb:mb-2 transition-all duration-500 ease-in-out">
+              <div
+                className={
+                  expandedIndex === index
+                    ? "md:h-[240px] h-[240px] relative transition-all duration-500 ease-in-out"
+                    : "relative transition-all duration-500 ease-in-out"
+                }
+              >
+                <div className="flex justify-end items-end absolute top-[14px] z-20 right-[14px]">
+                  <Button
+                    variant={"ghost"}
+                    className="w-10 h-10 p-0 rounded-full text-white border-[1px] border-solid border-[#808080] cursor-pointer"
+                    onClick={() => toggleExpand(index)}
+                  >
+                    {expandedIndex === index ? <Minus /> : <Plus />}
+                  </Button>
+                </div>
+                <div>
+                  <div
                     className={
                       expandedIndex === index
-                        ? "w-full h-full object-cover rounded-3xl object-top tran-height"
-                        : "w-full aspect-[0.77/1] object-cover h-full rounded-3xl tran-height"
+                        ? "h-60 w-auto flex justify-center mx-auto relative transition-all duration-500 ease-in-out"
+                        : "h-[250px] md:h-[550px] relative transition-all duration-500 !ease-in-out"
                     }
-                  />
+                  >
+                    <motion.img
+                      src={feature.Image}
+                      alt={
+                        expandedIndex === index
+                          ? "Feature GIF"
+                          : "Feature Image"
+                      }
+                      width={
+                        expandedIndex === index
+                          ? isMobile
+                            ? 150
+                            : 300
+                          : isMobile
+                          ? 300
+                          : 600
+                      }
+                      height={
+                        expandedIndex === index
+                          ? isMobile
+                            ? 100
+                            : 200
+                          : isMobile
+                          ? 200
+                          : 400
+                      }
+                      className={
+                        expandedIndex === index
+                          ? "w-full h-full object-cover rounded-3xl object-top tran-height"
+                          : "w-full aspect-[0.77/1] object-cover h-full rounded-3xl tran-height"
+                      }
+                      whileHover={{ scale: 1.1 }} // Slightly larger on hover
+                      transition={{
+                        type: "spring",
+                        stiffness: 150,
+                        damping: 20,
+                      }}
+                    />
+                  </div>
                 </div>
               </div>
+              {expandedIndex === index ? (
+                <div className="transition-all duration-500 !ease-in-out">
+                  <div className="my-[8px] sm:my-[24px] font-openSans font-thin sm:font-light text-[20px] md:text-[30px] leading-[1.2] sm:leading-[140%] text-white pl-1">
+                    {feature.title}
+                  </div>
+                  <ul className="ml-[35px]">
+                    {feature.PreMatches.map((preMatch, i) => (
+                      <li key={i} className="list-disc text-white">
+                        <p className="font-openSans font-regular text-[10px] sm:text-[18px] leading-[1.2] sm:leading-[155%] text-white">
+                          {preMatch}
+                        </p>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ) : (
+                <div className="mt-[8px] sm:mt-[24px] transition-all duration-500 !ease-in-out">
+                  <p className="font-openSans font-thin sm:font-light text-[20px] md:text-[30px] leading-[140%] text-white">
+                    {feature.title}
+                  </p>
+                </div>
+              )}
             </div>
-            {expandedIndex === index ? (
-              <div className="transition-all duration-500 !ease-in-out">
-                <div className="my-[8px] sm:my-[24px] font-openSans font-thin sm:font-light text-[20px] md:text-[30px] leading-[1.2] sm:leading-[140%] text-white pl-1">
-                  {feature.title}
-                </div>
-                <ul className="ml-[35px]">
-                  {feature.PreMatches.map((preMatch, i) => (
-                    <li key={i} className="list-disc text-white">
-                      <p className="font-openSans font-regular text-[10px] sm:text-[18px] leading-[1.2] sm:leading-[155%] text-white">
-                        {preMatch}
-                      </p>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ) : (
-              <div className="mt-[8px] sm:mt-[24px] transition-all duration-500 !ease-in-out">
-                <p className="font-openSans font-thin sm:font-light text-[20px] md:text-[30px] leading-[140%] text-white">
-                  {feature.title}
-                </p>
-              </div>
-            )}
           </div>
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
+    </motion.div>
   );
 }

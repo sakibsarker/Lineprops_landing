@@ -1,14 +1,33 @@
 import Image from "next/image";
+import { motion, useInView } from "framer-motion";
 
 export default function Newsletter() {
+  const fadeInVariant = {
+    hidden: { opacity: 0, y: 60 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
+  };
   return (
-    <div className="w-full">
+    <motion.div
+      className="w-full"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: false, amount: 0.2 }}
+      variants={fadeInVariant}
+    >
       <div className="md:mx-16 mx-5 pb-20 md:pb-48 ">
         <div className="overflow-hidden rounded-3xl ">
           {/* Content wrapper */}
           <div className="grid grid-cols-1 md:grid-cols-[1.2fr,2fr] h-[450px]">
             {/* Red section */}
-            <div className="bg-[#f01e2a] p-8 sm:p-12 lg:p-16 flex items-center justify-center">
+            <motion.div
+              className="bg-[#f01e2a] p-8 sm:p-12 lg:p-16 flex items-center justify-center"
+              whileHover={{ scale: 1.1 }} // Slightly larger on hover
+              transition={{ type: "spring", stiffness: 150, damping: 20 }}
+            >
               <div>
                 <h2 className="text-white text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-4 sm:mb-6">
                   Get the Latest Updates & Insights
@@ -19,10 +38,14 @@ export default function Newsletter() {
                   to know what's shaping the industry.
                 </p>
               </div>
-            </div>
+            </motion.div>
 
             {/* Email subscription form */}
-            <div className="relative">
+            <motion.div
+              className="relative"
+              whileHover={{ scale: 1.1 }} // Slightly larger on hover
+              transition={{ type: "spring", stiffness: 150, damping: 20 }}
+            >
               {/* Background image section */}
               <div className="absolute top-0 left-0 w-full h-full">
                 <Image
@@ -55,10 +78,10 @@ export default function Newsletter() {
                   </div>
                 </form>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

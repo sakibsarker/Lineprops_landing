@@ -5,7 +5,7 @@ import LineProps from "./LineProps";
 import ServicesSection from "./ServiceSection";
 import Newsletter from "./Newsletter";
 import SocialConnect from "./SocialConnect";
-import ContactsSection from "./sections/contacts-us";
+import ContactsSection from "./sections/ContactsSection";
 import FooterR from "./layouts/footerR";
 import NewsContents from "./NewsContents";
 
@@ -165,11 +165,6 @@ const Background = () => {
         </div>
         {/* Content on top of the background */}
         <div className="absolute inset-0">
-          <p className="px-5  md:px-16 pb-32 font-archivo font-thin text-lg md:text-5xl leading-[100%] text-black ">
-            <span className="font-bold">Explore </span>
-            our main features.
-          </p>
-
           <FeaturesCards />
           <Question />
           <LineProps />

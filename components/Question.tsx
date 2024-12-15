@@ -4,8 +4,7 @@ import React, { useState } from "react";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import Image from "next/image";
-import BtnArrow from "@/public/btn-arrow-banner.png";
+
 export default function Question() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
@@ -57,17 +56,38 @@ export default function Question() {
     },
   ];
 
+  const fadeInVariant = {
+    hidden: { opacity: 0, y: 60 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
+  };
+
   return (
-    <div className="container mx-auto py-10 md:py-48">
+    <motion.div
+      className="container mx-auto py-10 md:py-48"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: false, amount: 0.2 }}
+      variants={fadeInVariant}
+    >
       <div className="flex flex-col-reverse items-start justify-between md:flex-row gap-10">
         <div className="lg:w-7/12 w-full">
           <div className="space-y-4">
             {faqs.map((faq, index) => (
               <div key={index}>
-                <div
+                <motion.div
                   className={`border rounded-lg ${
                     activeIndex === index ? "border-red-500" : "border-gray-300"
                   }`}
+                  whileHover={{ scale: 1.1 }} // Slightly larger on hover
+                  transition={{
+                    type: "spring",
+                    stiffness: 150,
+                    damping: 20,
+                  }}
                 >
                   <button
                     className={`rounded-lg flex justify-between items-center w-full p-4 text-left focus:outline-none ${
@@ -95,7 +115,7 @@ export default function Question() {
                       )}
                     </motion.span>
                   </button>
-                </div>
+                </motion.div>
                 <AnimatePresence initial={false}>
                   {activeIndex === index && (
                     <motion.div
@@ -140,6 +160,6 @@ export default function Question() {
           </Link>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

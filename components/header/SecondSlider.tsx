@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function SecondSlider() {
   return (
-    <div className="relative min-h-screen bg-[#EEEEEE] ">
+    <div className="relative min-h-screen ">
       {/* Background image */}
       <div className="absolute top-0 left-0 w-full h-[85vh] z-0">
         <Image
@@ -34,7 +34,7 @@ export default function SecondSlider() {
             </div>
 
             {/* Right Column - Device Mockups */}
-            <div className="relative h-[460px]">
+            <div className="relative h-[460px] ">
               {/* Tablet/Monitor Device */}
               <div className="absolute right-0 top-0 w-[90%]">
                 <div className="relative overflow-hidden shadow-2xl">
@@ -55,7 +55,7 @@ export default function SecondSlider() {
               </div>
 
               {/* Mobile Device */}
-              <div className="absolute -bottom-32 left-[2%] w-[280px]">
+              <div className="absolute -bottom-32 left-[2%] w-[280px] ">
                 <div className="relative">
                   <Image
                     src="/slider2imagephn.png"
@@ -72,7 +72,7 @@ export default function SecondSlider() {
       </div>
 
       {/* Gray section below */}
-      <div className="h-[15vh] bg-[#f5f5f5]"></div>
+      <div className="h-[15vh] bg-[#EEEEEE]"></div>
     </div>
   );
 }
