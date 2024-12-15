@@ -8,6 +8,7 @@ import SecondSlider from "@/components/header/SecondSlider";
 import ThirdSlider from "@/components/header/ThirdSlider";
 import FourSlider from "@/components/header/FourSlider";
 import Background from "@/components/Background";
+import CustomSlider from "@/components/ui/customeSlider";
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -30,7 +31,7 @@ export default function Home() {
   return (
     <div className="bg-[#EEEEEE]">
       <div className="relative w-full overflow-hidden ">
-        <div
+        {/* <div
           className="flex transition-transform duration-500"
           style={{ transform: `translateX(-${currentSlide * 100}%)` }}
         >
@@ -39,7 +40,10 @@ export default function Home() {
               {Slide}
             </motion.div>
           ))}
-        </div>
+        </div> */}
+
+        <FirstSlider />
+        <SecondSlider />
       </div>
 
       <div className="relative z-10">

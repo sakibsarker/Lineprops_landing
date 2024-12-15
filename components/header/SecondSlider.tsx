@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import Image from "next/image";
 
 export default function SecondSlider() {
@@ -21,12 +22,42 @@ export default function SecondSlider() {
             {/* Left Column - Text Content */}
             <div className="text-white space-y-8">
               <h1 className="text-[2.75rem] leading-[1.2] tracking-tight">
-                <span className="font-light">Maximize your profits with</span>
-                <br />
-                <span className="font-bold">
-                  the most popular Live Betting Odds Service
-                </span>{" "}
-                <span className="font-light">in the market</span>
+                <motion.span
+                  className="font-light block"
+                  initial={{ y: "50%", opacity: 0 }}
+                  whileInView={{ y: "0%", opacity: 1 }}
+                  viewport={{ once: false, amount: 0.5 }}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
+                >
+                  Maximize your profits with
+                </motion.span>
+                <motion.span
+                  className="font-bold block"
+                  initial={{ y: "50%", opacity: 0 }}
+                  whileInView={{ y: "0%", opacity: 1 }}
+                  viewport={{ once: false, amount: 0.5 }}
+                  transition={{ delay: 0.3, duration: 0.5, ease: "easeOut" }}
+                >
+                  <span className="font-light">the</span> most popular Live
+                </motion.span>
+                <motion.span
+                  className="font-bold block"
+                  initial={{ y: "50%", opacity: 0 }}
+                  whileInView={{ y: "0%", opacity: 1 }}
+                  viewport={{ once: false, amount: 0.5 }}
+                  transition={{ delay: 0.6, duration: 0.5, ease: "easeOut" }}
+                >
+                  Betting Odds Service <span className="font-light">in</span>
+                </motion.span>
+                <motion.span
+                  className="font-light block"
+                  initial={{ y: "50%", opacity: 0 }}
+                  whileInView={{ y: "0%", opacity: 1 }}
+                  viewport={{ once: false, amount: 0.5 }}
+                  transition={{ delay: 0.6, duration: 0.5, ease: "easeOut" }}
+                >
+                  the market
+                </motion.span>
               </h1>
               <button className="px-10 py-3.5 border border-white/80 rounded-full text-white text-lg hover:bg-white/10 transition-colors duration-300">
                 Book a Demo
@@ -47,9 +78,9 @@ export default function SecondSlider() {
                     priority
                   />
                   {/* Live indicator */}
-                  <div className="absolute top-4 left-4 bg-red-600 text-white text-sm px-3 py-1 rounded-full flex items-center gap-2">
-                    <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+                  <div className="absolute top-4 left-4 bg-black text-white text-sm px-4 py-1 rounded-md flex items-center gap-2">
                     LIVE
+                    <div className="w-4 h-4 bg-red-700 rounded-full animate-pulse"></div>
                   </div>
                 </div>
               </div>

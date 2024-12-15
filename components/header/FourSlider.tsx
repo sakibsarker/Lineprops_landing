@@ -39,8 +39,8 @@ export default function FourSlider() {
                 <Image
                   src="/slider4image.png"
                   alt="Live dealer interface"
-                  width={1800}
-                  height={1200}
+                  width={2000}
+                  height={1800}
                   className="w-full h-auto "
                 />
               </div>
