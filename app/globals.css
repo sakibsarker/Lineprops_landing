@@ -260,3 +260,18 @@
   border-radius: 100rem 100rem 0 0;
   transform: rotate(-90deg); /* Rotates the semi-circle */
 }
+@keyframes blink {
+  0% {
+    background-color: black;
+  }
+  50% {
+    background-color: red;
+  }
+  100% {
+    background-color: black;
+  }
+}
+
+.animate-blink {
+  animation: blink 1s infinite;
+}

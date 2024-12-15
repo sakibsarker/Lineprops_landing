@@ -1,7 +1,20 @@
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 import Image from "next/image";
 
 export default function SecondSlider() {
+  const ref = useRef(null); // Create a ref to track the element
+  const isInView = useInView(ref, { once: false, amount: 0.2 }); // Track visibility
+
+  const slideVariant = {
+    hidden: { x: -200, y: -100 }, // Initial position (no movement)
+    visible: {
+      x: -100,
+      y: 0,
+      transition: { duration: 1.2, ease: "easeInOut" },
+    }, // Moves left
+  };
+
   return (
     <div className="relative min-h-screen ">
       {/* Background image */}
@@ -54,7 +67,7 @@ export default function SecondSlider() {
                   initial={{ y: "50%", opacity: 0 }}
                   whileInView={{ y: "0%", opacity: 1 }}
                   viewport={{ once: false, amount: 0.5 }}
-                  transition={{ delay: 0.6, duration: 0.5, ease: "easeOut" }}
+                  transition={{ delay: 0.3, duration: 0.5, ease: "easeOut" }}
                 >
                   the market
                 </motion.span>
@@ -68,7 +81,11 @@ export default function SecondSlider() {
             <div className="relative h-[460px] ">
               {/* Tablet/Monitor Device */}
               <div className="absolute right-0 top-0 w-[90%]">
-                <div className="relative overflow-hidden shadow-2xl">
+                <motion.div
+                  className="relative overflow-hidden shadow-2xl"
+                  whileHover={{ scale: 1.1 }} // Slightly larger on hover
+                  transition={{ type: "spring", stiffness: 150, damping: 20 }}
+                >
                   <Image
                     src="/slider2image.png"
                     alt="Stadium view with crowd"
@@ -80,13 +97,19 @@ export default function SecondSlider() {
                   {/* Live indicator */}
                   <div className="absolute top-4 left-4 bg-black text-white text-sm px-4 py-1 rounded-md flex items-center gap-2">
                     LIVE
-                    <div className="w-4 h-4 bg-red-700 rounded-full animate-pulse"></div>
+                    <div className="w-4 h-4 bg-red-700 rounded-full animate-blink"></div>
                   </div>
-                </div>
+                </motion.div>
               </div>
 
               {/* Mobile Device */}
-              <div className="absolute -bottom-32 left-[2%] w-[280px] ">
+              <motion.div
+                ref={ref}
+                className="absolute -bottom-32 left-[2%] w-[280px]"
+                initial="hidden"
+                animate={isInView ? "visible" : "hidden"}
+                variants={slideVariant}
+              >
                 <div className="relative">
                   <Image
                     src="/slider2imagephn.png"
@@ -96,7 +119,7 @@ export default function SecondSlider() {
                     className="w-full h-auto"
                   />
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>
