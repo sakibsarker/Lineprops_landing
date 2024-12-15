@@ -44,6 +44,8 @@ export default function Home() {
 
         <FirstSlider />
         <SecondSlider />
+        <ThirdSlider />
+        <FourSlider />
       </div>
 
       <div className="relative z-10">
