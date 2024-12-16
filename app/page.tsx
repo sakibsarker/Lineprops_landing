@@ -41,11 +41,11 @@ export default function Home() {
             </motion.div>
           ))}
         </div> */}
-
-        <FirstSlider />
+        <CustomSlider />
+        {/* <FirstSlider />
         <SecondSlider />
         <ThirdSlider />
-        <FourSlider />
+        <FourSlider /> */}
       </div>
 
       <div className="relative z-10">
