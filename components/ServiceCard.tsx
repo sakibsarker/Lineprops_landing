@@ -49,7 +49,7 @@ const ServiceCard: React.FC = () => {
           {services.map((service, index) => (
             <motion.div
               key={index}
-              className={`p-8 h-[300px] md:h-[400px] lg:h-[300px] text-center md:text-start rounded-3xl ${
+              className={`p-8 h-[300px] md:h-[300px] lg:h-[300px] xl:h-[300px] text-center md:text-start rounded-3xl ${
                 service.isDark ? "bg-[#141627]" : "bg-white"
               }`}
               whileHover={{ scale: 1.1 }} // Slightly larger on hover
