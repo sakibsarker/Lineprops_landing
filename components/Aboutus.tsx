@@ -24,15 +24,15 @@ export default function Aboutus() {
 
   return (
     <motion.div
-      className="bg-[#EEEEEE] px-5 text-center pt-20 md:text-start md:px-16 w-full "
+      className="bg-[#EEEEEE] px-5 text-center pt-20 md:text-start md:px-16 lg:px-20 w-full "
       initial="hidden"
       whileInView="visible"
       viewport={{ once: false, amount: 0.2 }}
       variants={fadeInVariant}
     >
-      <div className="grid grid-cols-1 gap-0 md:gap-16 md:grid-cols-2">
+      <div className="grid grid-cols-1 gap-0 md:gap-16 lg:gap-20 md:grid-cols-2 lg:grid-cols-2">
         {/* Left Column */}
-        <div className="flex flex-col space-y-5 md:space-y-8">
+        <div className="flex flex-col space-y-5 md:space-y-8 lg:space-y-16">
           <h1 className="text-xl md:text-5xl font-bold tracking-wide text-black ">
             Grow Your Business & <br />
             Ensure High Performance

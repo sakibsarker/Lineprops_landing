@@ -38,18 +38,18 @@ const ServiceCard: React.FC = () => {
 
   return (
     <motion.div
-      className="bg-[#EEEEEE] px-5 md:px-16 w-full"
+      className="bg-[#EEEEEE] px-5 md:px-2 w-full"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: false, amount: 0.2 }}
       variants={fadeInVariant}
     >
       <div className="pt-10 md:pt-28">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 lg:gap-6">
           {services.map((service, index) => (
             <motion.div
               key={index}
-              className={`p-8 text-center md:text-start rounded-3xl ${
+              className={`p-8 h-[300px] md:h-[400px] lg:h-[300px] text-center md:text-start rounded-3xl ${
                 service.isDark ? "bg-[#141627]" : "bg-white"
               }`}
               whileHover={{ scale: 1.1 }} // Slightly larger on hover
