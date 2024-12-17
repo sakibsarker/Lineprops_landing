@@ -49,21 +49,21 @@ const ServiceCard: React.FC = () => {
           {services.map((service, index) => (
             <motion.div
               key={index}
-              className={`p-8 h-[300px] md:h-[300px] lg:h-[300px] xl:h-[300px] text-center md:text-start rounded-3xl ${
+              className={`p-8 h-[300px] md:h-[300px] lg:h-[300px] xl:h-[500px] text-center md:text-start rounded-3xl ${
                 service.isDark ? "bg-[#141627]" : "bg-white"
               }`}
               whileHover={{ scale: 1.1 }} // Slightly larger on hover
               transition={{ type: "spring", stiffness: 150, damping: 20 }}
             >
               <h2
-                className={`text-[32px] font-medium mb-4 ${
+                className={`text-[32px] md:text-[32px] lg:text-[35px] xl:text-[40px]font-medium mb-4 ${
                   service.isDark ? "text-white" : "text-[#14162E]"
                 }`}
               >
                 {service.title}
               </h2>
               <p
-                className={`text-lg leading-relaxed mb-8 ${
+                className={`text-lg md:text-lg lg:text-xl xl:text-3xl leading-relaxed mb-8 ${
                   service.isDark ? "text-white" : "text-gray-700"
                 }`}
               >
